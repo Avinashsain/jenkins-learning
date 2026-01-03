@@ -1,1 +1,1 @@
-# jenkins-learning by YouTube chaneel
+# jenkins-learning by YouTube
