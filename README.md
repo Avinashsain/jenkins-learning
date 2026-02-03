@@ -315,3 +315,72 @@ http://<EC2_PUBLIC_IP>
 If your frontend loads successfully, 🎉 your reverse proxy is working!
 
 ---
+
+# Creating a Reverse Proxy Using Nginx (Backend)
+
+This section explains how to configure Nginx as a reverse proxy for the **Travel Memory backend** running on port `3001`.
+
+---
+
+## Step 1: Install and Set Up Nginx on EC2
+
+```bash
+sudo bash
+cd ~
+apt update -y
+apt install nginx -y
+```
+
+---
+
+## Step 2: Edit Nginx Configuration
+
+Open the default configuration file:
+
+```bash
+nano /etc/nginx/sites-available/default
+```
+
+Remove the existing code and paste the following:
+
+```nginx
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        proxy_pass http://127.0.0.1:3001;
+        proxy_http_version 1.1;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+Save and exit.
+
+---
+
+## Step 3: Restart and Test Nginx
+
+```bash
+nginx -t
+systemctl reload nginx
+```
+
+---
+
+## Step 4: Test Backend in Browser or Postman
+
+Open your browser and navigate to:
+
+```text
+http://<EC2_PUBLIC_IP>/trip
+```
+
+If you receive a valid response, 🎉 your backend reverse proxy is working!
+
+---
