@@ -477,3 +477,64 @@ systemctl reload nginx
 If both load correctly, 🎉 your domains are now routing properly!
 
 ---
+
+---
+
+# Install Certbot and Enable SSL for Frontend
+
+This section explains how to secure your frontend domain using HTTPS with Certbot.
+
+---
+
+## Step 1: Install Certbot
+
+```bash
+sudo bash
+cd ~
+apt update
+apt install certbot python3-certbot-nginx -y
+```
+
+---
+
+## Step 2: Generate and Configure SSL Certificates
+
+```bash
+sudo certbot --nginx -d learningtech.store -d www.learningtech.store
+```
+
+Certbot will:
+- Verify domain ownership
+- Generate SSL certificates
+- Automatically update your Nginx configuration to use HTTPS
+
+---
+
+## Step 3: Verify DNS Records
+
+```bash
+dig +short learningtech.store
+dig +short www.learningtech.store
+```
+
+Ensure both point to your EC2 public IP.
+
+---
+
+## Step 4: Reload and Test Nginx
+
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+---
+
+## Step 5: Access Your Website Securely
+
+🌐 https://learningtech.store  
+🌐 https://www.learningtech.store
+
+If your site loads with a 🔒 lock icon, your SSL setup is successful! 🎉
+
+---
