@@ -385,7 +385,6 @@ If you receive a valid response, 🎉 your backend reverse proxy is working!
 
 ---
 
----
 # Running Frontend & Backend with Custom Domains
 
 This section shows how to run:
@@ -538,3 +537,58 @@ sudo systemctl reload nginx
 If your site loads with a 🔒 lock icon, your SSL setup is successful! 🎉
 
 ---
+
+# Install Certbot and Enable SSL for Backend API
+
+This section explains how to secure your Backend subdomain using HTTPS with Certbot.
+
+---
+
+## Step 1: Install Certbot
+
+```bash
+sudo bash
+cd ~
+apt update
+apt install certbot python3-certbot-nginx -y
+```
+
+---
+
+## Step 2: Generate and Configure SSL Certificates
+
+```bash
+sudo certbot --nginx -d api.learningtech.store
+```
+
+Certbot will:
+- Verify domain ownership
+- Generate SSL certificates
+- Automatically update your Nginx configuration to use HTTPS
+
+---
+
+## Step 3: Verify DNS Records
+
+```bash
+dig +short api.learningtech.store
+```
+
+Ensure both point to your EC2 public IP.
+
+---
+
+## Step 4: Reload and Test Nginx
+
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+---
+
+## Step 5: Access Your Backend API Securely
+
+🌐 https://api.learningtech.store
+
+If your backend api loads with a 🔒 lock icon, your SSL setup is successful! 🎉
