@@ -25,7 +25,7 @@ User → Cloudflare Domain → AWS Load Balancer → EC2 Instances → Nginx →
 
 ## Setting Up the Application on AWS EC2
 
-### Step 1: Launch EC2 Instance
+### Step 1: Launch EC2 Instance for Backend
 
 - Launch an Ubuntu EC2 instance.
 - Connect via SSH.
@@ -176,3 +176,70 @@ Your MongoDB Atlas database is now successfully connected and ready to use with 
 For production environments, avoid using `0.0.0.0/0`. Instead, whitelist only trusted IP addresses.
 
 ---
+
+### Step 1: Launch EC2 Instance for Frontend
+
+- Launch an Ubuntu EC2 instance.
+- Connect via SSH.
+
+---
+
+### Step 2: Install Required Packages (Frontend Setup)
+
+```bash
+sudo apt update -y
+sudo apt install nodejs -y
+sudo apt install npm -y
+
+nodejs -v
+npm -v
+```
+
+---
+
+### Step 3: Deploy Frontend Code
+
+```bash
+sudo bash
+cd ~
+git clone https://github.com/UnpredictablePrashant/TravelMemory.git
+cd TravelMemory/frontend
+```
+
+---
+
+### Step 4: Create `.env` File
+
+```bash
+nano .env
+```
+
+Add the following:
+
+```env
+REACT_APP_BACKEND_URL=http://<EC2_PUBLIC_IP>:3001
+```
+
+Save and exit.
+
+---
+
+### Step 5: Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+### Step 6: Start Frontend Server
+
+```bash
+npm start
+```
+
+Your frontend should now be running on:
+
+```
+http://<EC2_PUBLIC_IP>:3000
+```
