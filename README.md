@@ -102,7 +102,7 @@ This guide explains how to set up MongoDB Atlas and connect it to your applicati
 ## Steps to Set Up MongoDB on Atlas
 
 ### 1. Log in to MongoDB Atlas
-- Visit: https://www.mongodb.com/cloud/atlas
+- Visit: https://cloud.mongodb.com/
 - Log in to your MongoDB Atlas account.
 
 ---
