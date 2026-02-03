@@ -384,3 +384,99 @@ http://<EC2_PUBLIC_IP>/trip
 If you receive a valid response, 🎉 your backend reverse proxy is working!
 
 ---
+
+---
+
+# Running Frontend & Backend with Custom Domains
+
+This section shows how to run:
+
+- **Frontend** on: `https://learningtech.store`
+- **Backend API** on: `https://api.learningtech.store`
+
+---
+
+## Step 1: Point Domains to Your EC2 IP
+
+In your domain DNS provider:
+
+| Type | Name | Value (EC2 Public IP) |
+|------|------|-----------------------|
+| A    | @    | <EC2_PUBLIC_IP>       |
+| A    | www  | <EC2_PUBLIC_IP>       |
+| A    | api  | <EC2_PUBLIC_IP>       |
+
+Wait a few minutes for DNS to propagate.
+
+---
+
+## Step 2: Create Separate Nginx Server Blocks
+
+Create a new config file:
+
+```bash
+nano /etc/nginx/sites-available/default
+```
+
+Paste the following configuration:
+
+```nginx
+# Frontend - learningtech.store
+server {
+    listen 80;
+    server_name learningtech.store www.learningtech.store;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+# Backend - api.learningtech.store
+server {
+    listen 80;
+    server_name api.learningtech.store;
+
+    location / {
+        proxy_pass http://127.0.0.1:3001;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+---
+
+## Step 3: Enable the Configuration for Frontend & Backend
+
+```bash
+nano /etc/nginx/sites-available/default
+
+nginx -t
+systemctl reload nginx
+```
+
+---
+
+## 📌 Step 4: Test in Browser
+
+- Frontend:  
+  ```text
+  http://learningtech.store
+  ```
+
+- Backend API:  
+  ```text
+  http://api.learningtech.store
+  ```
+
+If both load correctly, 🎉 your domains are now routing properly!
+
+---
