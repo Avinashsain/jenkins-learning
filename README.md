@@ -386,15 +386,12 @@ If you receive a valid response, 🎉 your backend reverse proxy is working!
 ---
 
 ---
-
 # Running Frontend & Backend with Custom Domains
 
 This section shows how to run:
 
 - **Frontend** on: `https://learningtech.store`
 - **Backend API** on: `https://api.learningtech.store`
-
----
 
 ## Step 1: Point Domains to Your EC2 IP
 
@@ -465,7 +462,7 @@ systemctl reload nginx
 
 ---
 
-## 📌 Step 4: Test in Browser
+## Step 4: Test in Browser
 
 - Frontend:  
   ```text
