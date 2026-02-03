@@ -176,6 +176,7 @@ Your MongoDB Atlas database is now successfully connected and ready to use with 
 For production environments, avoid using `0.0.0.0/0`. Instead, whitelist only trusted IP addresses.
 
 ---
+## Setting Up the Application on AWS EC2
 
 ### Step 1: Launch EC2 Instance for Frontend
 
