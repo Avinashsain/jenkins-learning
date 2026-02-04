@@ -670,7 +670,7 @@ If your backend api loads with a 🔒 lock icon, your SSL setup is successful! �
 
 ---
 
-# Creating Multiple Instances of Frontend and Backend Servers
+# Creating Multiple Instances of Frontend Servers
 
 This section explains how to scale the Travel Memory application by creating multiple EC2 instances using an AWS Launch Template.
 
@@ -682,8 +682,9 @@ This section explains how to scale the Travel Memory application by creating mul
 2. Click:  
    **Actions → Images & Templates → Create template from instance**
 3. Enter the template name:  
+   `travel-memory-frontend`
    `travel-memory-frontend-template`
-4. Click **Create launch template**.
+5. Click **Create launch template**.
 
 ---
 
@@ -692,7 +693,7 @@ This section explains how to scale the Travel Memory application by creating mul
 1. Go to:  
    **Actions → Launch instance from template**
 2. Select the source template:  
-   `travel-memory-frontend-template`
+   `travel-memory-frontend`
 3. Click **Launch instance**.
 
 ---
@@ -703,7 +704,7 @@ This section explains how to scale the Travel Memory application by creating mul
 2. Example access URL:  
 
 ```
-http://<EC2_PUBLIC_IP>:3001
+http://<EC2_PUBLIC_IP>
 ```
 
 ---
