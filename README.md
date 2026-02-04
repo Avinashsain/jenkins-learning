@@ -710,3 +710,50 @@ http://<EC2_PUBLIC_IP>
 ---
 
 You have successfully created multiple instances for your Travel Memory application!
+
+
+# Creating and Attaching a Load Balancer to EC2 Instances
+
+This guide explains how to create and attach an Application Load Balancer (ALB) to the two EC2 instances running the Travel Memory application.
+
+---
+
+## Step 1: Configure the Load Balancer
+
+1. Navigate to **EC2 → Load Balancers** in the AWS Management Console.
+2. Click **Create Load Balancer**.
+3. Select **Application Load Balancer (ALB)**.
+4. Set the load balancer name as: travel-memory-frontend-lb
+5. Select the scheme as: internet-facing
+6. Select the IP address type as: IPv4
+
+
+7. Under **Availability Zones**, select two AZs that match the AZs of your EC2 instances.
+
+---
+
+## Step 2: Create a Target Group
+
+1. Under **Listeners and routing**, click **Create a target group**.
+2. Choose **Instances** as the target type.
+3. Set the protocol to **HTTPS** and the port to: 443
+
+
+4. Select the two EC2 instances running the Travel Memory application.
+5. Click **Include as pending**.
+6. Click **Create target group**.
+
+---
+
+## Step 3: Create the Load Balancer
+
+1. Return to **Load Balancers**.
+2. Choose the target group you created.
+3. Click **Create load balancer**.
+
+---
+
+## Step 4: Test the Load Balancer
+
+Copy the DNS name of the load balancer, for example: travel-memory-frontend-lb-2044805926.ap-south-1.elb.amazonaws.com
+
