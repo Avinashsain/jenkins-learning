@@ -477,8 +477,6 @@ If both load correctly, 🎉 your domains are now routing properly!
 
 ---
 
----
-
 # Install Certbot and Enable SSL for Frontend
 
 This section explains how to secure your frontend domain using HTTPS with Certbot.
