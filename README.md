@@ -667,3 +667,45 @@ sudo systemctl reload nginx
 🌐 https://api.learningtech.store
 
 If your backend api loads with a 🔒 lock icon, your SSL setup is successful! 🎉
+
+---
+
+# Creating Multiple Instances of Frontend and Backend Servers
+
+This section explains how to scale the Travel Memory application by creating multiple EC2 instances using an AWS Launch Template.
+
+---
+
+## Step 1: Create a Launch Template from an Existing EC2 Instance
+
+1. Navigate to your existing EC2 instance created for the Travel Memory application.
+2. Click:  
+   **Actions → Images & Templates → Create template from instance**
+3. Enter the template name:  
+   `travel-memory-frontend-template`
+4. Click **Create launch template**.
+
+---
+
+## Step 2: Launch Instances from the Template
+
+1. Go to:  
+   **Actions → Launch instance from template**
+2. Select the source template:  
+   `travel-memory-frontend-template`
+3. Click **Launch instance**.
+
+---
+
+## Step 3: Verify Instances
+
+1. In the AWS Console, confirm that two or more instances are now running under the same template.
+2. Example access URL:  
+
+```
+http://<EC2_PUBLIC_IP>:3001
+```
+
+---
+
+You have successfully created multiple instances for your Travel Memory application!
