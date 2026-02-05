@@ -877,56 +877,67 @@ This document describes the Auto Scaling Group configuration used to scale the T
 
 🎉 **Your Travel Memory application is now fully scalable and highly available!**
 
-## 🧠 Use PM2 to Keep Apps Running (Backend + Frontend)
+## Running Apps with PM2
 
-Instead of using `node index.js`, use **PM2 (Process Manager)**. It runs your applications in the background and automatically restarts them if they crash or the server reboots.
+### Install PM2
+
+```bash
+sudo npm install -g pm2
+```
 
 ---
 
-### Backend Setup with PM2
+### Backend with PM2
 
 ```bash
-# Install PM2 globally
-sudo npm install -g pm2
-
-# Navigate to backend folder
 cd ~/TravelMemory/backend
-
-# Start the backend
 pm2 start index.js --name "travel-backend"
-
-# Ensure it restarts on reboot
 pm2 startup
 pm2 save
+```
 
 ---
-### Frontend Setup with PM2
+
+### Frontend with PM2
 
 ```bash
-# Navigate to frontend folder
 cd ~/TravelMemory/frontend
-
-# Install frontend dependencies
 npm install
-
-# Build the frontend
 npm run build
-
-# Install serve globally if not installed
 sudo npm install -g serve
-
-# Start the frontend using serve and PM2
 pm2 start serve --name "travel-frontend" -- -s build -l 3000
-
-# Save PM2 process list
 pm2 save
+```
 
-### Verify Running Processes
+---
+
+### Verify
+
+```bash
 pm2 list
+```
 
-You should see:
+Expected:
 
-  travel-backend
-  travel-frontend
+```
+travel-backend
+travel-frontend
+```
 
-🎉 Both backend and frontend are now running in the background and will restart automatically after server reboots!
+---
+
+## Deployment Complete!
+
+Your **Travel Memory** application is now:
+
+- ✅ Secure (HTTPS)
+- ✅ Scalable (ASG + ALB)
+- ✅ Highly Available
+- ✅ Production-ready
+
+---
+
+## Author
+
+**Avinash Sain**  
+GitHub: https://github.com/Avinashsain
