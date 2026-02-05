@@ -280,7 +280,7 @@ server {
     server_name _;
 
     location / {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://<EC2_PUBLIC_IP>:3000;
         proxy_http_version 1.1;
 
         proxy_set_header Host $host;
@@ -349,7 +349,7 @@ server {
     server_name _;
 
     location / {
-        proxy_pass http://127.0.0.1:3001;
+        proxy_pass http://<EC2_PUBLIC_IP>:3001;
         proxy_http_version 1.1;
 
         proxy_set_header Host $host;
@@ -423,7 +423,7 @@ server {
     server_name learningtech.store www.learningtech.store;
 
     location / {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://<EC2_PUBLIC_IP>:3000;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -438,7 +438,7 @@ server {
     server_name api.learningtech.store;
 
     location / {
-        proxy_pass http://127.0.0.1:3001;
+        proxy_pass http://<EC2_PUBLIC_IP>:3001;
         proxy_http_version 1.1;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
@@ -514,7 +514,7 @@ server {
     server_name learningtech.store www.learningtech.store;
 
     location / {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://<EC2_PUBLIC_IP>:3000;
         proxy_http_version 1.1;
 
         proxy_set_header Host $host;
@@ -612,7 +612,7 @@ server {
     server_name api.learningtech.store;
 
     location / {
-        proxy_pass http://127.0.0.1:3001;
+        proxy_pass http://<EC2_PUBLIC_IP>:3001;
         proxy_http_version 1.1;
 
         proxy_set_header Host $host;
@@ -711,49 +711,55 @@ http://<EC2_PUBLIC_IP>
 
 You have successfully created multiple instances for your Travel Memory application!
 
-
 # Creating and Attaching a Load Balancer to EC2 Instances
 
-This guide explains how to create and attach an Application Load Balancer (ALB) to the two EC2 instances running the Travel Memory application.
+This guide explains how to create and attach an **Application Load Balancer (ALB)** to the EC2 instances running the **Travel Memory** application.
 
 ---
 
 ## Step 1: Configure the Load Balancer
 
-1. Navigate to **EC2 → Load Balancers** in the AWS Management Console.
+1. Navigate to: EC2 → Load Balancers
 2. Click **Create Load Balancer**.
 3. Select **Application Load Balancer (ALB)**.
-4. Set the load balancer name as: travel-memory-frontend-lb
-5. Select the scheme as: internet-facing
-6. Select the IP address type as: IPv4
-
-
-7. Under **Availability Zones**, select two AZs that match the AZs of your EC2 instances.
+4. Set the load balancer name: travel-memory-frontend-lb
+5. Set the scheme: internet-facing
+6. Set the IP address type: IPv4
+7. Under **Availability Zones**, select the same AZs as your EC2 instances.
 
 ---
 
 ## Step 2: Create a Target Group
 
 1. Under **Listeners and routing**, click **Create a target group**.
-2. Choose **Instances** as the target type.
-3. Set the protocol to **HTTPS** and the port to: 443
-
+2. Choose: Target type: Instances
+3. Set: Protocol: HTTPS Port: 443
 
 4. Select the two EC2 instances running the Travel Memory application.
 5. Click **Include as pending**.
 6. Click **Create target group**.
+
+>  HTTPS should be terminated at the Load Balancer using ACM, while backend traffic remains HTTPS.
 
 ---
 
 ## Step 3: Create the Load Balancer
 
 1. Return to **Load Balancers**.
-2. Choose the target group you created.
+2. Attach the target group you created.
 3. Click **Create load balancer**.
 
 ---
 
 ## Step 4: Test the Load Balancer
 
-Copy the DNS name of the load balancer, for example: travel-memory-frontend-lb-2044805926.ap-south-1.elb.amazonaws.com
+1. Copy the DNS name of the load balancer, for example: travel-memory-frontend-lb-2044805926.ap-south-1.elb.amazonaws.com
+
+2. Paste it into your browser: http://travel-memory-frontend-lb-2044805926.ap-south-1.elb.amazonaws.com
+
+3. Verify that the Travel Memory application loads successfully.
+
+---
+
+**Your Load Balancer is now correctly distributing traffic across your EC2 instances!**
 
