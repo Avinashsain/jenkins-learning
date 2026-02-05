@@ -820,3 +820,59 @@ This document records the issued SSL certificate used for securing the Travel Me
 ---
 
 🎉 **Your domain is now secured with HTTPS using AWS ACM!**
+
+# Auto Scaling Group (ASG) Setup for Travel Memory Application
+
+This document describes the Auto Scaling Group configuration used to scale the Travel Memory frontend instances automatically.
+
+---
+
+## Auto Scaling Group Details
+
+- **Auto Scaling Group Name:**  
+  `travel-memory-frontend-asg`
+
+- **Region:**  
+  Asia Pacific (Mumbai)
+
+- **Account:**  
+  AvinashSain (233245302554)
+
+- **Launch Template Used:**  
+  `travel-memory-frontend-template`
+
+- **Last Updated:**  
+  1 minute ago
+
+---
+
+## Capacity Settings
+
+- **Desired Capacity:** 1  
+- **Minimum Capacity:** 1  
+- **Maximum Capacity:** 2 *(recommended for scaling)*
+
+---
+
+## Instance Status
+
+- Instances are launched automatically based on the launch template.
+- Health checks ensure only healthy instances receive traffic from the Load Balancer.
+
+---
+
+## Integration
+
+- The ASG is attached to the Application Load Balancer target group: travel-memory-frontend-tg
+
+---
+
+## Benefits
+
+- Automatic instance replacement if one fails.
+- Automatic scaling based on traffic load.
+- Zero-downtime deployments when combined with rolling updates.
+
+---
+
+🎉 **Your Travel Memory application is now fully scalable and highly available!**
