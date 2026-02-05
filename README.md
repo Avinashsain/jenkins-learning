@@ -605,7 +605,7 @@ Certbot will:
 
 ---
 
-## 🔧 Final Nginx Configuration After SSL
+## Final Nginx Configuration After SSL
 
 ```nginx
 server {
@@ -813,4 +813,10 @@ This document records the issued SSL certificate used for securing the Travel Me
 1. Go to **EC2 → Load Balancers**.
 2. Select your ALB.
 3. Edit **Listeners**.
-4. Add or modify:
+4. Add or modify: HTTPS: 443 → Forward to target group
+
+5. Select this ACM certificate.
+
+---
+
+🎉 **Your domain is now secured with HTTPS using AWS ACM!**
