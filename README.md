@@ -473,11 +473,15 @@ systemctl reload nginx
   ```text
   http://learningtech.store
   ```
+  <img width="876" height="540" alt="Screenshot 2026-01-30 at 10 22 32 PM" src="https://github.com/user-attachments/assets/e9ffea19-5977-4a0b-81a4-ff1549d44ded" />
+
 
 - Backend API:  
   ```text
   http://api.learningtech.store
   ```
+  <img width="689" height="366" alt="Screenshot 2026-01-30 at 10 22 38 PM" src="https://github.com/user-attachments/assets/30965d07-95f7-4da9-b854-3ff7eea59dee" />
+
 
 If both load correctly, 🎉 your domains are now routing properly!
 
@@ -577,6 +581,10 @@ sudo systemctl reload nginx
 🌐 https://learningtech.store  
 🌐 https://www.learningtech.store
 
+<img width="1512" height="580" alt="Screenshot 2026-02-01 at 11 40 38 PM" src="https://github.com/user-attachments/assets/a67a1487-0c65-4c9c-9fca-d9cf3930cf54" />
+<img width="1512" height="770" alt="Screenshot 2026-02-01 at 11 40 48 PM" src="https://github.com/user-attachments/assets/17e59bd8-c54b-4e3c-9da0-58a92f121a80" />
+
+
 If your site loads with a 🔒 lock icon, your SSL setup is successful! 🎉
 
 ---
@@ -671,6 +679,8 @@ sudo systemctl reload nginx
 ## Step 5: Access Your Backend API Securely
 
 🌐 https://api.learningtech.store
+
+<img width="1512" height="936" alt="Screenshot 2026-02-01 at 11 41 06 PM" src="https://github.com/user-attachments/assets/3f6ff1d3-c5e3-4713-9a3a-126ff14394f7" />
 
 If your backend api loads with a 🔒 lock icon, your SSL setup is successful! 🎉
 
