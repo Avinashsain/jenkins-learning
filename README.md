@@ -763,3 +763,54 @@ This guide explains how to create and attach an **Application Load Balancer (ALB
 
 **Your Load Balancer is now correctly distributing traffic across your EC2 instances!**
 
+# AWS Certificate Manager (ACM) – SSL Certificate Details
+
+This document records the issued SSL certificate used for securing the Travel Memory application.
+
+---
+
+## Certificate Information
+
+- **Certificate ID:**  
+  `cc3667a6-3da5-4921-84f9-fd6293be7300`
+
+- **ARN:**  
+  `arn:aws:acm:ap-south-1:233245302554:certificate/cc3667a6-3da5-4921-84f9-fd6293be7300`
+
+- **Type:** Amazon Issued  
+- **Region:** Asia Pacific (Mumbai)  
+- **Account:** AvinashSain (233245302554)  
+- **Status:** ✅ Issued  
+- **In Use:** Yes  
+
+---
+
+## 🌐 Domain Secured
+
+| Domain               | Status   |
+|----------------------|----------|
+| lb.learningtech.store | Success  |
+
+---
+
+## Renewal
+
+- **Renewal Eligibility:** Eligible  
+- **Renewal Status:** Automatic (AWS-managed)
+
+---
+
+## Validation Method
+
+- **Type:** DNS (CNAME)
+- **Record Name:**  
+  `_da979cbccb069db6bbf69dbaf1308772.lb.learningtech.store`
+
+---
+
+## Applying Certificate to Load Balancer
+
+1. Go to **EC2 → Load Balancers**.
+2. Select your ALB.
+3. Edit **Listeners**.
+4. Add or modify:
