@@ -92,9 +92,9 @@ Your backend should now be running on:
 ```
 http://<EC2_PUBLIC_IP>:3001
 
+```
 <img width="857" height="347" alt="Screenshot 2026-02-01 at 9 33 48 PM" src="https://github.com/user-attachments/assets/f8c704bc-e6f0-4eac-8c4d-411aadea0515" />
 
-```
 
 # Connecting the Application to MongoDB Atlas
 
