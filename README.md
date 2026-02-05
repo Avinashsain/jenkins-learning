@@ -93,7 +93,7 @@ Your backend should now be running on:
 http://<EC2_PUBLIC_IP>:3001
 
 ```
-<img width="857" height="347" alt="Screenshot 2026-02-01 at 9 33 48 PM" src="https://github.com/user-attachments/assets/f8c704bc-e6f0-4eac-8c4d-411aadea0515" />
+<img width="748" height="209" alt="Screenshot 2026-02-01 at 9 33 54 PM" src="https://github.com/user-attachments/assets/ad2f1765-e10b-4e9d-ac42-757fee41a0e8" />
 
 
 # Connecting the Application to MongoDB Atlas
@@ -223,6 +223,8 @@ Add the following:
 ```env
 REACT_APP_BACKEND_URL=http://<EC2_PUBLIC_IP>:3001
 ```
+<img width="857" height="347" alt="Screenshot 2026-02-01 at 9 33 48 PM" src="https://github.com/user-attachments/assets/196037ba-6861-4e07-afac-b774803df6f8" />
+
 
 Save and exit.
 
