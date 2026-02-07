@@ -317,6 +317,8 @@ Open your browser and navigate to:
 ```text
 http://<EC2_PUBLIC_IP>
 ```
+<img width="1512" height="836" alt="Screenshot 2026-02-06 at 11 09 45 PM" src="https://github.com/user-attachments/assets/893dc0c9-9e0a-4031-9945-3b3bb02775ac" />
+
 
 If your frontend loads successfully, 🎉 your reverse proxy is working!
 
@@ -386,6 +388,7 @@ Open your browser and navigate to:
 ```text
 http://<EC2_PUBLIC_IP>/trip
 ```
+<img width="1505" height="834" alt="Screenshot 2026-02-06 at 11 14 30 PM" src="https://github.com/user-attachments/assets/ff902d35-919f-4713-a4aa-1cb0f1d14000" />
 
 If you receive a valid response, 🎉 your backend reverse proxy is working!
 
@@ -411,6 +414,8 @@ In your domain DNS provider:
 Wait a few minutes for DNS to propagate.
 
 ---
+<img width="1134" height="390" alt="Screenshot 2026-02-07 at 7 23 43 PM" src="https://github.com/user-attachments/assets/ae2dffee-9d3f-4887-969e-1949e8d52912" />
+
 
 ## Step 2: Create Separate Nginx Server Blocks
 
@@ -808,6 +813,11 @@ This document records the issued SSL certificate used for securing the Travel Me
 | lb.learningtech.store | Success  |
 
 ---
+
+🌐 https://lb.learningtech.store
+
+<img width="1512" height="890" alt="Screenshot 2026-02-01 at 11 41 20 PM" src="https://github.com/user-attachments/assets/48e44e34-4eac-41c6-9ec6-ebee1916d544" />
+
 
 ## Renewal
 
