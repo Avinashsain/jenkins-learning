@@ -478,15 +478,13 @@ systemctl reload nginx
   ```text
   http://learningtech.store
   ```
-  <img width="876" height="540" alt="Screenshot 2026-01-30 at 10 22 32 PM" src="https://github.com/user-attachments/assets/e9ffea19-5977-4a0b-81a4-ff1549d44ded" />
-
+  <img width="608" height="525" alt="Screenshot 2026-02-07 at 11 28 59 PM" src="https://github.com/user-attachments/assets/1fb46f96-97ed-4304-bd1b-135f131bdc87" />
 
 - Backend API:  
   ```text
   http://api.learningtech.store
   ```
-  <img width="689" height="366" alt="Screenshot 2026-01-30 at 10 22 38 PM" src="https://github.com/user-attachments/assets/30965d07-95f7-4da9-b854-3ff7eea59dee" />
-
+  <img width="577" height="505" alt="Screenshot 2026-02-07 at 11 29 08 PM" src="https://github.com/user-attachments/assets/86f5e6ed-9242-4b03-b37f-107ee084518b" />
 
 If both load correctly, 🎉 your domains are now routing properly!
 
